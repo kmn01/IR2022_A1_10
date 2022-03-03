@@ -33,6 +33,7 @@
 * The input operation sequence is a comma+space separated string
 * Operations are applied left to right except when all operations are OR or AND in which case the smallest lists are merged first to improve efficiency
 
+
 ## 2. Positional Index
 
 ### Preprocessing steps
@@ -59,7 +60,8 @@
 * Stemming not done as not mentioned 
 
 
-*Contact us:*
+
+## *Contact us:*
 
 * Gitansh: gitansh19241@iiitd.ac.in
 
