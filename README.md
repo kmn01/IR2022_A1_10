@@ -33,6 +33,31 @@
 * The input operation sequence is a comma+space separated string
 * Operations are applied left to right except when all operations are OR or AND in which case the smallest lists are merged first to improve efficiency
 
+## 2. Positional Index
+
+### Preprocessing steps
+* Removed special characters
+* Converted to lower case: convert the text to lower case using the python lower() function
+* Removed punctuations: remove the punctuations by removing the characters that are in python string.punctuation
+* Tokenization: tokenized the text using word_tokenize() from nltk
+* Removed stopwords: remove the stopwords in nltk’s stopword corpus for english
+* Removed purely numeric tokens: remove the tokens that are numeric
+
+### Methodology
+* Preprocessing as mentioned above
+* Creating doc to doc-id mapping: assigning a document id to every document
+* Creating the positional index: creating the nested postings lists for every term by storing index of each occurrence of a term in a document. Thus the postings lists are a dictionary which contains document ids as key. Each key (document_id) has a list of indexes which refer to the positional occurrence of the word in the corresponding document
+* The input query is preprocessed following the same steps as used for the text data.
+* Query Processing:
+> * We iterate over each occurrence of the first term of the query in every document that it appears.
+> * For each occurrence, we check if the following term of the query is present in same document at index current_occurance + 1. If we find a case that all the tokens in the query occur at consecutive indices in a document, we update the corresponding document key in our result list. 
+> * We print the length of our result list which represents the number of documents contains the phrase.
+> * By reverse mapping document ids to document names, we print the file names as well.
+
+### Assumptions
+* Numbers not removed from text and query as not mentioned
+* Stemming not done as not mentioned 
+
 
 *Contact us:*
 
